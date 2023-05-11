@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-product',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent{
+  searchText: string = '';
   
   products = [
     {id: 1, name: 'MacBook Pro',price: '1749', color: 'Silver', available: 'Available', image: 'https://i.dummyjson.com/data/products/6/thumbnail.png'},
@@ -22,6 +23,16 @@ export class ProductComponent{
   getUnAvailableProducts(){
     return this.products.filter(product => product.available   != 'Available').length
   }
+
+ 
+
+  onSearchTextEntered(searchValue: string){
+    this.searchText = searchValue;
+    console.log(this.searchText);
+  }
+
+
+
 
 
 }

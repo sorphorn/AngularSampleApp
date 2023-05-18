@@ -1,4 +1,4 @@
-import { Component, Output, Input, EventEmitter} from '@angular/core';
+import { Component, Output, Input, EventEmitter, OnInit, OnChanges, SimpleChanges, DoCheck, AfterContentInit, AfterContentChecked} from '@angular/core';
 
 
 @Component({
@@ -6,7 +6,7 @@ import { Component, Output, Input, EventEmitter} from '@angular/core';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })
-export class SearchComponent {
+export class SearchComponent implements DoCheck, AfterContentInit, AfterContentChecked {
   // searchValue: string = 'IPHONE';
   searchValue: string = '';
   enteredSearchValue: string = '';
@@ -24,6 +24,35 @@ export class SearchComponent {
   onSearchTextChanged(){
     this.searchTextChanged.emit(this.enteredSearchValue)
   }
+
+
+  constructor(){
+    console.log('Constructor called!')
+  }
+  ngAfterContentChecked(): void {
+    console.log('ngAfterContentChecked called!')
+  }
+  ngAfterContentInit(): void {
+    console.log('ngAfterContentInit called!')
+  }
+  ngDoCheck(): void {
+    console.log('OnCheck called!')
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('OnChange called!')
+    console.log(changes)
+  }
+  
+
+  ngOnInit(): void {
+    console.log('Oninit called')
+  }
+
+  
+
+  
+
+
 
 
 }

@@ -1,0 +1,29 @@
+<div class="form">
+    <div>
+        <input type="text" placeholder="Enter Product Name" id="productName" [(ngModel)]="product.name">
+    </div>
+    <div>
+        <input type="text" placeholder="Enter Product Price" id="productName" [(ngModel)]="product.price">
+    </div>
+    <div>
+        <input type="text" placeholder="Enter Product Color" id="productName" [(ngModel)]="product.color">
+    </div>
+    <div>
+        <input type="text" placeholder="Enter Product Image" id="productName" [(ngModel)]="product.image">
+    </div>
+
+    <div>
+        <select name="status" id="status" [(ngModel)]="product.available">
+            <option value="Available">
+                Available
+            </option>
+            <option value="UnAvailable">
+                UnAvailable
+            </option>
+        </select>
+    </div>
+    <div>
+        <button (click)="CreateProduct()">Add Product</button>
+        
+    </div>
+</div>
